@@ -10,5 +10,9 @@ module.exports = [
   {
     input: [[0, 4, 3, 0], 0],
     output: [0, 3]
+  },
+  {
+    input: [[1, 3, 1, 2, 0], 2],
+    output: [0, 2]
   }
 ]

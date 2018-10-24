@@ -22,14 +22,59 @@ var twoSum = function (nums, target) {
   }
 
   for (var t = 0; t < nums.length; t++) {
-    idx1 = t
+    idx1 = t;
+
     for (var e = t + 1; e < nums.length; e++) {
       if (target - nums[t] - nums[e] === 0) {
-        idx2 = e
+        idx2 = e;
         return [idx1, idx2]
       }
     }
   }
 };
 
-module.exports = twoSum
+var twoSumHashMap = function (nums, target) {
+  if (nums.length === 2 && nums[0] + nums[1] === target) {
+    return [0, 1]
+  }
+
+  var hashMap = {},
+      len = nums.length,
+      diff;
+
+  for(var i = 0; i < len; i++) {
+    hashMap[nums[i]] = i;
+  }
+
+  for(var t = 0; t < len; t++) {
+    var diff = target - nums[i];
+
+    if (hashMap[diff] && hashMap[diff] !== i) {
+      return [i, hashMap[diff]]
+    }
+  }
+}
+
+var twoSumOnePassHashTable = function (nums, target) {
+  if (nums.length === 2 && nums[0] + nums[1] === target) {
+    return [0, 1]
+  }
+
+  var hashMap = {},
+      len = nums.length,
+      diff,
+      i
+
+  for(i = 0;i < len; i++) {
+    diff = target - nums[i];
+
+    if (hashMap[diff] !== undefined) {
+      return [hashMap[diff], i]
+    }
+
+    hashMap[nums[i]] = i;
+  }
+}
+
+module.exports = twoSumOnePassHashTable
+
