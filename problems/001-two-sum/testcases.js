@@ -15,4 +15,4 @@ module.exports = [
     input: [[1, 3, 1, 2, 0], 2],
     output: [0, 2]
   }
-]
+];

@@ -13,68 +13,70 @@
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function (nums, target) {
-  var idx1;
-  var idx2;
+const twoSum = function twoSum(nums, target) {
+  let idx1;
+  let idx2;
 
   if (nums.length === 2 && nums[0] + nums[1] === target) {
-    return [0, 1]
+    return [0, 1];
   }
 
-  for (var t = 0; t < nums.length; t++) {
+  for (let t = 0; t < nums.length; t++) {
     idx1 = t;
 
-    for (var e = t + 1; e < nums.length; e++) {
+    for (let e = t + 1; e < nums.length; e++) {
       if (target - nums[t] - nums[e] === 0) {
         idx2 = e;
-        return [idx1, idx2]
+        return [idx1, idx2];
       }
     }
   }
 };
 
-var twoSumHashMap = function (nums, target) {
+const twoSumHashMap = function twoSumHashMap(nums, target) {
   if (nums.length === 2 && nums[0] + nums[1] === target) {
-    return [0, 1]
+    return [0, 1];
   }
 
-  var hashMap = {},
-      len = nums.length,
-      diff;
+  const hashMap = {};
+  const len = nums.length;
 
-  for(var i = 0; i < len; i++) {
+  for (let i = 0; i < len; i++) {
     hashMap[nums[i]] = i;
   }
 
-  for(var t = 0; t < len; t++) {
-    var diff = target - nums[i];
+  for (let t = 0; t < len; t++) {
+    const diff = target - nums[t];
 
-    if (hashMap[diff] && hashMap[diff] !== i) {
-      return [i, hashMap[diff]]
+    if (hashMap[diff] && hashMap[diff] !== t) {
+      return [t, hashMap[diff]];
     }
   }
-}
+};
 
-var twoSumOnePassHashTable = function (nums, target) {
+const twoSumOnePassHashTable = function twoSumOnePassHashTable(nums, target) {
   if (nums.length === 2 && nums[0] + nums[1] === target) {
-    return [0, 1]
+    return [0, 1];
   }
 
-  var hashMap = {},
-      len = nums.length,
-      diff,
-      i
+  const hashMap = {};
+  const len = nums.length;
 
-  for(i = 0;i < len; i++) {
-    diff = target - nums[i];
+  for (let i = 0; i < len; i++) {
+    const diff = target - nums[i];
 
     if (hashMap[diff] !== undefined) {
-      return [hashMap[diff], i]
+      return [hashMap[diff], i];
     }
 
     hashMap[nums[i]] = i;
   }
-}
+};
 
-module.exports = twoSumOnePassHashTable
+// module.exports = [
+//   twoSum,
+//   twoSumHashMap,
+//   twoSumOnePassHashTable
+// ];
 
+module.exports = twoSum

@@ -7,11 +7,17 @@
     "test": "test"
   },
   "dependencies": {
-    "jest": "^23.6.0"
+    "commander": "^2.19.0",
+    "glob": "^7.1.3",
+    "inquirer": "^6.2.0",
+    "inquirer-search-checkbox": "^1.0.0",
+    "jest": "^23.6.0",
+    "shelljs": "^0.8.2"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "jest ./test/"
+    "jest": "jest ./test/test.js --colors",
+    "test": "node ./test/command.js"
   },
   "repository": {
     "type": "git",
