@@ -1,10 +1,22 @@
-module.exports = [
-  {
-    name: 'Test all',
-    value: 'ALL'
-  },
-  {
-    name: 'Pick some problems',
-    value: 'CHECK_BOX'
-  }
-]
+module.exports = {
+  choice: [
+    {
+      name: 'Test one problem',
+      value: {
+        type: 'PICK_ONE'
+      }
+    },
+    {
+      name: 'Test all problems',
+      value: {
+        type: 'ALL'
+      }
+    },
+    {
+      name: 'Pick some problems',
+      value: {
+        type: 'PICK_SOME'
+      }
+    }
+  ]
+}
