@@ -1,12 +1,16 @@
 const inquirer = require('inquirer');
 const searchCheckbox = require('inquirer-search-checkbox');
-const shell = require('shelljs');
-const { getAll } = require('./helpers/read-problems.js')
+const chalk = require('chalk');
+
+const { getAllProblems } = require('./helpers/read-problems.js')
+const { saveCache } = require('./helpers/cache.js')
+const runJest = require('./helpers/run-jest.js')
+const getModeChoices = require('./helpers/get-mode-choices.js')
 
 inquirer.registerPrompt('search-checkbox', searchCheckbox);
 
-const allProblems = getAll()
-const allOptions = allProblems.map((problem) => {
+const allProblems = getAllProblems()
+const allProblmeChoices = allProblems.map((problem) => {
   return {
     name: problem.problemName,
     value: problem
@@ -17,40 +21,43 @@ inquirer.prompt([
   {
     type: 'list',
     name: 'mode',
-    message: 'Which mode do you need ?',
-    choices: [
-      {
-        name: 'Test all',
-        value: 'ALL'
-      },
-      {
-        name: 'Choose some problems',
-        value: 'CHOOSE'
-      }
-      // {
-      //   name: `last one []`,
-      //   value: 'LAST'
-      // }
-    ]
+    message: 'Choose one : ',
+    choices: getModeChoices()
   }
 ]).then(answers => {
-
-  if (answers.mode === 'ALL') {
-    shell.env['problems'] = JSON.stringify(allProblems)
-    shell.exec('npm run jest')
-    return
+  const cache = {
+    mode: answers.mode,
+    data: {}
   }
 
-  inquirer.prompt([
-    {
-      type: 'search-checkbox',
-      name: 'pick',
-      message: 'choose problem: ',
-      pageSize: 10,
-      choices: allOptions
-    }
-  ]).then(answers => {
-    shell.env['problems'] = JSON.stringify(answers.pick)
-    shell.exec('npm run jest')
-  })
+  if (answers.mode === 'ALL') {
+    cache.data = allProblems
+    saveCache(cache)
+    runJest(allProblems)
+  }
+
+  if (answers.mode === 'CHECK_BOX') {
+    inquirer.prompt([
+      {
+        type: 'search-checkbox',
+        name: 'pick',
+        message: 'Pick some problems: ',
+        pageSize: 10,
+        choices: allProblmeChoices
+      }
+    ]).then(answers => {
+      if (answers.pick.length < 1) {
+        console.log(chalk.bold.red('You must choose at least one problem.'))
+        return
+      }
+
+      cache.data = answers.pick
+      saveCache(cache)
+      runJest(answers.pick)
+    })
+  }
+
+  if (answers.mode === 'LAST') {
+
+  }
 })

@@ -4,7 +4,7 @@ const path = require('path');
 const srcPath = path.resolve(__dirname, '../../problems');
 
 module.exports = {
-  getAll() {
+  getAllProblems() {
     const problemSrc = glob.sync(`${srcPath}/**/index.js`);
     const problemList = problemSrc.map(path => {
       const arr = path.split('/')
