@@ -1,28 +1,27 @@
 const { isArray, isFunction } = require('./utils');
 const problemList = JSON.parse(process.env.problems);
 
+const runTest = (fnc, cases, name) => {
+  test(`function: ${name}`, () => {
+    cases.forEach((oneOfCase) => {
+      expect(fnc.apply(null, oneOfCase.input))
+        .toEqual(oneOfCase.output);
+    })
+  })
+}
+
 problemList.forEach(p => {
   const testCase = require(p.testCasePath);
   const problemFncs = require(p.path);
 
   describe(p.problemName, () => {
     if (isFunction(problemFncs)) {
-      test(`function: ${problemFncs.name}`, () => {
-        testCase.forEach((oneOfCase) => {
-          expect(problemFncs.apply(null, oneOfCase.input))
-            .toEqual(oneOfCase.output);
-        })
-      })
+      runTest(problemFncs, testCase, problemFncs.name);
     }
 
     if (isArray(problemFncs)) {
       problemFncs.forEach(fnc => {
-        test(`function: ${fnc.name}`, () => {
-          testCase.forEach(oneOfCase => {
-            expect(fnc.apply(null, oneOfCase.input))
-              .toEqual(oneOfCase.output);
-          })
-        })
+        runTest(fnc, testCase, fnc.name);
       })
     }
   })

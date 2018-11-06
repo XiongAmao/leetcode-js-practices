@@ -1,13 +1,16 @@
 const inquirer = require('inquirer');
 const searchCheckbox = require('inquirer-search-checkbox');
+const inquirerAutocompletePrompt = require('inquirer-autocomplete-prompt')
 const chalk = require('chalk');
 
 const { getAllProblems } = require('./helpers/read-problems.js');
 const { saveCache } = require('./helpers/cache.js');
 const runJest = require('./helpers/run-jest.js');
 const getModeChoices = require('./helpers/get-mode-choices.js');
+const serachAll = require('./helpers/search-all.js')
 
 inquirer.registerPrompt('search-checkbox', searchCheckbox);
+inquirer.registerPrompt('autocomplete', inquirerAutocompletePrompt)
 
 const allProblems = getAllProblems();
 const allProblmeChoices = allProblems.map((problem) => {
@@ -32,12 +35,19 @@ inquirer.prompt([
 
   if (answers.mode.type === 'PICK_ONE') {
     inquirer.prompt([
+      // {
+      //   type: 'list',
+      //   name: 'pick',
+      //   message: 'choose one problem: ',
+      //   pageSize: 10,
+      //   choices: allProblmeChoices
+      // }
       {
-        type: 'list',
+        type: 'autocomplete',
         name: 'pick',
         message: 'choose one problem: ',
         pageSize: 10,
-        choices: allProblmeChoices
+        source: serachAll(allProblmeChoices)
       }
     ]).then(answers => {
       cache.data = [answers.pick];
