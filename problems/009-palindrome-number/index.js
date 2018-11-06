@@ -32,8 +32,22 @@ const isPalindrome = function(x) {
   return true
 };
 
+const isPalindromeRevertHalfNumber = (x) => {
+  if (x < 0 || (x % 10 === 0 && x !== 0)) {
+    return false;
+  }
+  let number = x;
+  let revertedNumber = 0;
 
+  while(number > revertedNumber) {
+    revertedNumber = revertedNumber * 10 + number % 10;
+    number = number / 10;
+  }
+
+  return number === revertedNumber || number === revertedNumber / 10
+};
 
 module.exports = [
-  isPalindrome
+  isPalindrome,
+  isPalindromeRevertHalfNumber
 ]
