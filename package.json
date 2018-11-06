@@ -16,7 +16,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "jest": "jest ./test/test.js --colors",
+    "jest": "jest --findRelatedTests ./test/test.js --colors",
     "test": "node ./test/command.js"
   },
   "repository": {

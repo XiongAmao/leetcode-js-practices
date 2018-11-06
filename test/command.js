@@ -21,7 +21,7 @@ inquirer.prompt([
   {
     type: 'list',
     name: 'mode',
-    message: 'Choose one : ',
+    message: 'Please select the problems you want to test: ',
     choices: getModeChoices()
   }
 ]).then(answers => {
@@ -35,7 +35,7 @@ inquirer.prompt([
       {
         type: 'list',
         name: 'pick',
-        message: 'Pick some problems: ',
+        message: 'choose one problem: ',
         pageSize: 10,
         choices: allProblmeChoices
       }

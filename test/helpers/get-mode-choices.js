@@ -1,3 +1,5 @@
+const inquirer = require('inquirer')
+
 const { choice } = require('../defaults/mode-choice.js')
 const { getCache } = require('./cache.js')
 
@@ -12,11 +14,11 @@ module.exports = () => {
 
   if (cache) {
     if (cache.type === 'PICK_ONE') {
-      lastChoice.name = `Last operation: Test ${cache.data[0].problemName}`;
+      lastChoice.name = `single(previous choice): ${cache.data[0].problemName}`;
     }
 
     if (cache.type === 'ALL') {
-      lastChoice.name = 'Last operation: <Test all problems>';
+      lastChoice.name = 'all(previous choice)';
     }
 
     if (cache.type === 'PICK_SOME') {
@@ -24,13 +26,13 @@ module.exports = () => {
         return i.problemName
       }).join(',');
 
-      lastChoice.name = `Last operation: <pick some problems>  "${problems}"`;
+      lastChoice.name = `partial(previous choice): "${problems}"`;
     }
 
     lastChoice.value.data = cache.data;
 
 
-    return [lastChoice, ...choice];
+    return [lastChoice, new inquirer.Separator(), ...choice];
   }
 
   return [...choice]

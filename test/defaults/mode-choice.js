@@ -1,21 +1,21 @@
 module.exports = {
   choice: [
     {
-      name: 'Test one problem',
+      name: 'single',
       value: {
         type: 'PICK_ONE'
       }
     },
     {
-      name: 'Test all problems',
+      name: 'partial',
       value: {
-        type: 'ALL'
+        type: 'PICK_SOME'
       }
     },
     {
-      name: 'Pick some problems',
+      name: 'all',
       value: {
-        type: 'PICK_SOME'
+        type: 'ALL'
       }
     }
   ]

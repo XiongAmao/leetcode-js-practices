@@ -54,9 +54,7 @@ const reverseRemainder = function reverseRemainder(x) {
   return x > 0 ? res : -res;
 };
 
-module.exports = reverse
-
-// module.exports = [
-//   reverse,
-//   reverseRemainder
-// ]
+module.exports = [
+  reverse,
+  reverseRemainder
+]

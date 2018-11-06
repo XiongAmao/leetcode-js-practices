@@ -73,10 +73,8 @@ const twoSumOnePassHashTable = function twoSumOnePassHashTable(nums, target) {
   }
 };
 
-// module.exports = [
-//   twoSum,
-//   twoSumHashMap,
-//   twoSumOnePassHashTable
-// ];
-
-module.exports = twoSum
+module.exports = [
+  twoSum,
+  twoSumHashMap,
+  twoSumOnePassHashTable
+];

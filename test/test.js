@@ -1,22 +1,31 @@
-const fs = require('fs')
-const isExist = fs.existsSync
-
-const problemList = JSON.parse(process.env.problems)
+const { isArray, isFunction } = require('./utils');
+const problemList = JSON.parse(process.env.problems);
 
 problemList.forEach(p => {
-  if (!isExist(p.path) || !isExist(p.testCasePath)) {
-    return
-  }
+  const testCase = require(p.testCasePath);
+  const problemFncs = require(p.path);
 
-  const problem = require(p.path)
+  describe(p.problemName, () => {
+    if (isFunction(problemFncs)) {
+      test(`function: ${problemFncs.name}`, () => {
+        testCase.forEach((oneOfCase) => {
+          expect(problemFncs.apply(null, oneOfCase.input))
+            .toEqual(oneOfCase.output);
+        })
+      })
+    }
 
-  const testCase = require(p.testCasePath)
-
-  test(p.problemName, () => {
-    testCase.forEach((t) => {
-      expect(problem.apply(null, t.input)).toEqual(t.output)
-    })
-  });
+    if (isArray(problemFncs)) {
+      problemFncs.forEach(fnc => {
+        test(`function: ${fnc.name}`, () => {
+          testCase.forEach(oneOfCase => {
+            expect(fnc.apply(null, oneOfCase.input))
+              .toEqual(oneOfCase.output);
+          })
+        })
+      })
+    }
+  })
 })
 
 
