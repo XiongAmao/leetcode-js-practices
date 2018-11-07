@@ -14,5 +14,9 @@ module.exports = [
   {
     input: [21],
     output: false
+  },
+  {
+    input: [12345654321],
+    output: true
   }
 ]

@@ -33,6 +33,8 @@ const isPalindrome = function(x) {
 };
 
 const isPalindromeRevertHalfNumber = (x) => {
+  const int = val => parseInt(val, 10)
+
   if (x < 0 || (x % 10 === 0 && x !== 0)) {
     return false;
   }
@@ -41,10 +43,10 @@ const isPalindromeRevertHalfNumber = (x) => {
 
   while(number > revertedNumber) {
     revertedNumber = revertedNumber * 10 + number % 10;
-    number = number / 10;
+    number = int(number / 10);
   }
 
-  return number === revertedNumber || number === revertedNumber / 10
+  return number === revertedNumber || number === int(revertedNumber / 10)
 };
 
 module.exports = [
