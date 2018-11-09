@@ -13,6 +13,8 @@
  * Input: 120
  * Output: 12
  *
+ * @param {number} x
+ * @return {number}
  */
 const reverse = function reverse(x) {
   if (x === 0) {

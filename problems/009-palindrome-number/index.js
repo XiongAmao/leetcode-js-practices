@@ -14,6 +14,8 @@
  * example 3:
  * Input: 10
  * Output: false
+ * ssssparam {number} x
+ * @return {boolean}
  */
 const isPalindrome = function(x) {
   if (x <= 0) {
