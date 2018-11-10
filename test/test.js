@@ -1,9 +1,12 @@
+const _ = require('lodash')
 const { isArray, isFunction } = require('./utils');
 const problemList = JSON.parse(process.env.problems);
 
 const runTest = (fnc, cases, name) => {
+  const casesCopy = _.cloneDeepWith(cases)
+
   test(`function: ${name}`, () => {
-    cases.forEach((oneOfCase) => {
+    casesCopy.forEach((oneOfCase) => {
       expect(fnc.apply(null, oneOfCase.input))
         .toEqual(oneOfCase.output);
     })

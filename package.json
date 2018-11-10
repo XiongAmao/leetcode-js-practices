@@ -14,6 +14,7 @@
     "inquirer-autocomplete-prompt": "^1.0.1",
     "inquirer-search-checkbox": "^1.0.0",
     "jest": "^23.6.0",
+    "lodash": "^4.17.11",
     "shelljs": "^0.8.2"
   },
   "devDependencies": {},
