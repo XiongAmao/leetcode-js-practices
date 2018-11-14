@@ -15,8 +15,8 @@ const runTest = (fnc, cases, name) => {
         })
       } else {
         // simple test
-        const inputString = JSON.stringify(oneOfCase.input)
-        const outputString = JSON.stringify(oneOfCase.output)
+        const inputString = JSON.stringify(oneOfCase.input);
+        const outputString = JSON.stringify(oneOfCase.output);
 
         test(`testcase:
           input: ${inputString}
@@ -28,18 +28,6 @@ const runTest = (fnc, cases, name) => {
       }
     })
   })
-  // test(`function: ${name}`, () => {
-  //   casesCopy.forEach((oneOfCase) => {
-  //     if (isFunction(oneOfCase)) {
-  //       // define test function of problem
-  //       oneOfCase(fnc)
-  //     } else {
-  //       // simple test
-  //       expect(fnc.apply(null, oneOfCase.input))
-  //         .toEqual(oneOfCase.output);
-  //     }
-  //   })
-  // })
 }
 
 problemList.forEach(p => {
