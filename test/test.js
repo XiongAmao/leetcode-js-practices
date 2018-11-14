@@ -5,18 +5,41 @@ const problemList = JSON.parse(process.env.problems);
 const runTest = (fnc, cases, name) => {
   const casesCopy = _.cloneDeepWith(cases)
 
-  test(`function: ${name}`, () => {
-    casesCopy.forEach((oneOfCase) => {
+
+  describe(`function: ${name}`, () => {
+    casesCopy.forEach((oneOfCase, index) => {
       if (isFunction(oneOfCase)) {
         // define test function of problem
-        oneOfCase(fnc)
+        test(`testcase ${index + 1}`, () => {
+          oneOfCase(fnc)
+        })
       } else {
         // simple test
-        expect(fnc.apply(null, oneOfCase.input))
-          .toEqual(oneOfCase.output);
+        const inputString = JSON.stringify(oneOfCase.input)
+        const outputString = JSON.stringify(oneOfCase.output)
+
+        test(`testcase:
+          input: ${inputString}
+          output: ${outputString}
+        `, () => {
+          expect(fnc.apply(null, oneOfCase.input))
+            .toEqual(oneOfCase.output);
+        })
       }
     })
   })
+  // test(`function: ${name}`, () => {
+  //   casesCopy.forEach((oneOfCase) => {
+  //     if (isFunction(oneOfCase)) {
+  //       // define test function of problem
+  //       oneOfCase(fnc)
+  //     } else {
+  //       // simple test
+  //       expect(fnc.apply(null, oneOfCase.input))
+  //         .toEqual(oneOfCase.output);
+  //     }
+  //   })
+  // })
 }
 
 problemList.forEach(p => {
