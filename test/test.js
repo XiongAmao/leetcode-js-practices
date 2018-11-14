@@ -1,5 +1,5 @@
-const _ = require('lodash')
-const { isArray, isFunction } = require('./utils');
+const _ = require('lodash');
+const { isArray, isFunction } = _;
 const problemList = JSON.parse(process.env.problems);
 
 const runTest = (fnc, cases, name) => {
@@ -7,8 +7,14 @@ const runTest = (fnc, cases, name) => {
 
   test(`function: ${name}`, () => {
     casesCopy.forEach((oneOfCase) => {
-      expect(fnc.apply(null, oneOfCase.input))
-        .toEqual(oneOfCase.output);
+      if (isFunction(oneOfCase)) {
+        // define test function of problem
+        oneOfCase(fnc)
+      } else {
+        // simple test
+        expect(fnc.apply(null, oneOfCase.input))
+          .toEqual(oneOfCase.output);
+      }
     })
   })
 }
