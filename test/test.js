@@ -15,8 +15,9 @@ const runTest = (fnc, cases, name) => {
         })
       } else {
         // simple test
-        const inputString = JSON.stringify(oneOfCase.input);
-        const outputString = JSON.stringify(oneOfCase.output);
+        const { inputText, outputText } = oneOfCase;
+        const inputString = inputText || JSON.stringify(oneOfCase.input);
+        const outputString = outputText || JSON.stringify(oneOfCase.output);
 
         test(`testcase:
           input: ${inputString}
