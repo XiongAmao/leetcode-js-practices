@@ -38,9 +38,21 @@ const hasCycleByHashTables = (head) => {
 };
 
 const hasCycleByTwoPointers = (head) => {
+  if (!head) return false;
+  let fast = head;
+  let slow = head;
 
+  while (fast && fast.next) {
+    fast = fast.next.next;
+    slow = slow.next;
+    if (slow === fast) return true;
+  }
+  if (fast === null || fast.next === null) return false;
+
+  return false;
 }
 
 module.exports = [
-  hasCycleByHashTables
+  hasCycleByHashTables,
+  hasCycleByTwoPointers
 ]
