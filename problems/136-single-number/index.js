@@ -35,6 +35,33 @@ const singleNumber = (nums) => {
   return +Object.keys(hash)[0];
 };
 
+
+/**
+ * js ^ operator
+ *
+ * a = 5   1 0 1
+ * b = 2   0 1 0
+ *
+ * a ^ a = 0
+ *
+ * 1 0 1
+ * 1 0 1
+ * -----
+ * 0 0 0
+ *
+ * b ^ 0 = b
+ *
+ * 0 1 0
+ * 0 0 0
+ * -----
+ * 0 1 0
+ *
+ * the integer ^ 0 equal to itself.
+ *
+ * after ^ every number, the result is single number
+ */
+
+
 const xor = (nums) => {
   let init = 0;
   nums.forEach(d=>{
