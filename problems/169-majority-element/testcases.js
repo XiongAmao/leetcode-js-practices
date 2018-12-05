@@ -1,0 +1,10 @@
+module.exports = [
+  {
+    input: [[3, 2, 3]],
+    output: 3
+  },
+  {
+    input: [[2, 2, 1, 1, 1, 2, 2]],
+    output: 2
+  }
+]
