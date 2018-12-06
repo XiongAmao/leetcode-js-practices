@@ -1,5 +1,7 @@
 # Leetcode Solution with JavaScript
 
+> Node.js 8 lts
+
 ## CLI
 
 ```bash
