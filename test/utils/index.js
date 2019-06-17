@@ -1,12 +1,21 @@
+const valToTypeString = (val) => {
+  return Object.prototype.toString.call(val);
+};
+
 const isFunction = (arg) => {
-  return typeof arg === 'function'
-}
+  return valToTypeString(arg) === '[object Function]'
+};
 
 const isArray = (arg) => {
-  return Object.prototype.toString.call(arg) === '[object Array]';
+  return valToTypeString(arg) === '[object Array]';
+};
+
+const isObject = (arg) => {
+  return valToTypeString(arg) === '[object Object]'
 }
 
 module.exports = {
   isFunction,
-  isArray
+  isArray,
+  isObject
 }
