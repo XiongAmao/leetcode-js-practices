@@ -15,7 +15,7 @@ class SinglyLinkedList {
       if (index !== arr.length - 1 ) {
         cur = cur.next;
       }
-    })
+    });
 
     this.endNode = cur;
   }
@@ -53,7 +53,7 @@ class CycleLinkedList {
     arr.forEach(num => {
       cur.next = new ListNode(num);
       cur = cur.next;
-    })
+    });
     cur.next = this.headNode;
   }
 
@@ -86,7 +86,6 @@ module.exports = [
   },
   {
     inputText: 'Cycle linked list',
-    output: 'true',
     input: [
       new CycleLinkedList(
         [1, 2, 3, 4, 5],
@@ -95,4 +94,4 @@ module.exports = [
     ],
     output: true
   }
-]
+];

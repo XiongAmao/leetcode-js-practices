@@ -51,7 +51,7 @@ const lemonadeChange = function(bills) {
     5: 0,
     10: 0,
     20: 0
-  }
+  };
 
   for (let i = 0; i < bills.length; i++) {
     let left = bills[i];
@@ -70,9 +70,9 @@ const lemonadeChange = function(bills) {
     count[bills[i]]++;
   }
 
-  return true
+  return true;
 };
 
 module.exports = [
   lemonadeChange
-]
+];

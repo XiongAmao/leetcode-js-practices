@@ -37,4 +37,4 @@ const maxSubArray = (nums) => {
 
 module.exports = [
   maxSubArray
-]
+];

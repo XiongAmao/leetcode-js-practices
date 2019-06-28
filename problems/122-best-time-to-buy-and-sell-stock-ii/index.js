@@ -38,8 +38,8 @@ const maxProfit = (prices) => {
   for (let i = 1; i < prices.length; i++) {
     if (prices[i] >= prices[i - 1]) {
       profit = profit + prices[i] - prices[i - 1];
-    };
-  };
+    }
+  }
 
   return profit;
 };
@@ -56,8 +56,8 @@ const maxProfit2 = (prices) => {
       profit = profit + peek - valley;
       valley = prices[i];
       peek = prices[i];
-    };
-  };
+    }
+  }
 
   profit = profit + peek - valley;
 
@@ -67,4 +67,4 @@ const maxProfit2 = (prices) => {
 module.exports = [
   maxProfit,
   maxProfit2
-]
+];

@@ -27,4 +27,4 @@ module.exports = [
     input: ['{[[]{}]}'],
     output: true
   }
-]
+];

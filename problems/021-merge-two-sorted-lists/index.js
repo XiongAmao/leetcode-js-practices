@@ -48,9 +48,9 @@ const mergeTwoLists = function(l1, l2) {
 
   curNode.next = l1 !== null ? l1 : l2;
 
-  return headNode.next
+  return headNode.next;
 };
 
 module.exports = [
   mergeTwoLists
-]
+];

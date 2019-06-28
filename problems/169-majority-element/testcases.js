@@ -7,4 +7,4 @@ module.exports = [
     input: [[2, 2, 1, 1, 1, 2, 2]],
     output: 2
   }
-]
+];

@@ -14,5 +14,8 @@ module.exports = {
   },
   rules: {
     semi: ['error']
+  },
+  globals: {
+    expect: true
   }
 }

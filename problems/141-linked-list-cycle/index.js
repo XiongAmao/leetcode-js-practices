@@ -50,9 +50,9 @@ const hasCycleByTwoPointers = (head) => {
   if (fast === null || fast.next === null) return false;
 
   return false;
-}
+};
 
 module.exports = [
   hasCycleByHashTables,
   hasCycleByTwoPointers
-]
+];

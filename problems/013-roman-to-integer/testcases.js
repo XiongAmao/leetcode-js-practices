@@ -19,4 +19,4 @@ module.exports = [
     input: ['MCMXCIV'],
     output: 1994
   }
-]
+];

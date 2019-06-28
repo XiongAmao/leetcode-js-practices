@@ -70,7 +70,7 @@ const removeDuplicates2 = function(nums) {
       idx++;
       nums[idx] = nums[i];
     }
-  };
+  }
 
   nums.splice(idx + 1);
 
@@ -80,4 +80,4 @@ const removeDuplicates2 = function(nums) {
 module.exports = [
   removeDuplicates,
   removeDuplicates2
-]
+];

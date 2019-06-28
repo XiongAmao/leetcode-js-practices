@@ -28,7 +28,7 @@
 const maxProfit = (prices) => {
   if (prices.length < 2) {
     return 0;
-  };
+  }
 
   let max = Number.MIN_SAFE_INTEGER;
 
@@ -38,7 +38,7 @@ const maxProfit = (prices) => {
 
       if (temp >= 0 && max < temp) {
         max = temp;
-      };
+      }
     }
   }
 
@@ -58,7 +58,7 @@ const maxProfitOnePass = (prices) => {
   }
 
   return maxProfit;
-}
+};
 
 const maxProfitOnePass2 = (prices) => {
   let profit = 0;
@@ -70,10 +70,10 @@ const maxProfitOnePass2 = (prices) => {
   }
 
   return profit;
-}
+};
 
 module.exports = [
   maxProfit,
   maxProfitOnePass,
   maxProfitOnePass2
-]
+];

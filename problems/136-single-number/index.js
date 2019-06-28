@@ -65,10 +65,10 @@ const singleNumber = (nums) => {
 const xor = (nums) => {
   let init = 0;
   nums.forEach(d=>{
-      init ^= d
-  })
-  return init
-}
+      init ^= d;
+  });
+  return init;
+};
 
 const xor2 = (nums) => nums.reduce((a, b) => a ^ b);
 
@@ -76,4 +76,4 @@ module.exports = [
   singleNumber,
   xor,
   xor2
-]
+];

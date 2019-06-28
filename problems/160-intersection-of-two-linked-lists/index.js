@@ -39,17 +39,17 @@
 const getIntersectionNodeHashMap = (headA, headB) => {
   if (!headA || !headB) return null;
 
-  const hashMap = new Map()
+  const hashMap = new Map();
 
   while(headA) {
     hashMap.set(headA, 'node');
     headA = headA.next;
-  };
+  }
 
   while(headB) {
     if (hashMap.has(headB)) {
       return headB;
-    };
+    }
     headB = headB.next;
   }
   return null;
@@ -73,7 +73,7 @@ const getIntersectionNodeTwoPointer = (headA, headB) => {
         aLoopDone = true;
       } else {
         return null;
-      };
+      }
 
       if (curB.next) {
         curB = curB.next;
@@ -82,7 +82,7 @@ const getIntersectionNodeTwoPointer = (headA, headB) => {
         bLoopDone = true;
       } else {
         return null;
-      };
+      }
 
     } else {
       return curA;
@@ -93,5 +93,5 @@ const getIntersectionNodeTwoPointer = (headA, headB) => {
 module.exports = [
   getIntersectionNodeHashMap,
   getIntersectionNodeTwoPointer
-]
+];
 

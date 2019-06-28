@@ -22,22 +22,22 @@ const threeSumClosest = (nums, target) => {
         let count = nums[i] + nums[t] + nums[e];
 
         if ((target - count) === 0) {
-          return count
+          return count;
         }
 
         if (Math.abs(target - count) < Math.abs(min)) {
-          min = target - count
+          min = target - count;
         }
       }
     }
   }
-  return target - min
+  return target - min;
 };
 
 const threeSumClosestByTwoDualPointer = (nums, target) => {
   nums.sort((a, b) => {
     return a - b;
-  })
+  });
 
   let minDiff = Number.MAX_SAFE_INTEGER;
   let minSum = 0;
@@ -56,18 +56,18 @@ const threeSumClosestByTwoDualPointer = (nums, target) => {
       }
 
       if (tempSum < target) {
-        left++
+        left++;
       } else if (tempSum > target) {
-        right--
+        right--;
       } else {
-        return tempSum
+        return tempSum;
       }
     }
   }
-  return minSum
-}
+  return minSum;
+};
 
 module.exports = [
   threeSumClosest,
   threeSumClosestByTwoDualPointer
-]
+];

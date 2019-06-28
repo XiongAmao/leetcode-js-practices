@@ -36,8 +36,8 @@ const detectCycle = (head) => {
     slow = slow.next;
   }
   return slow;
-}
+};
 
 module.exports = [
   detectCycle
-]
+];

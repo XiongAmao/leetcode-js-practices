@@ -25,11 +25,11 @@ const longestCommonPrefix = (strs) => {
 
   let i;
 
-  for(i = 0; i >= 0; i++) {
+  for (i = 0; i >= 0; i++) {
     const char = strs[0][i];
-    const isSame = strs.every(el => {
+    const isSame = strs.every((el) => {
       return char === el[i];
-    })
+    });
 
     if (!isSame || i > strs[0].length) {
       break;
@@ -41,7 +41,7 @@ const longestCommonPrefix = (strs) => {
   }
 
   return strs[0].slice(0, i);
-}
+};
 
 const longestCommonPrefix2 = (strs) => {
   if (!strs || strs.length === 0) {
@@ -52,12 +52,10 @@ const longestCommonPrefix2 = (strs) => {
     return strs[0];
   }
 
-  let max = strs[0]
-  let min = strs[0]
+  let max = strs[0];
+  let min = strs[0];
 
   // compare string????
-}
+};
 
-module.exports = [
-  longestCommonPrefix
-]
+module.exports = [longestCommonPrefix];

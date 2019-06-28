@@ -34,37 +34,37 @@ const climbStairsMemo = (n) => {
   function climb (i) {
     if (i > n) {
       return 0;
-    };
+    }
 
     if (i === n) {
       return 1;
-    };
+    }
 
     if (memo[i] > 0) {
       return memo[i];
-    };
+    }
 
     memo[i] = climb(i + 1) + climb(i + 2);
 
     return memo[i];
-  };
-  return climb(0)
-}
+  }
+  return climb(0);
+};
 
 // dynamic programming
 const climbStairsDP = (n) => {
   if (n <= 2) {
     return n;
-  };
+  }
 
   const dp = [];
   dp[0] = 1;
   dp[1] = 2;
 
   for(let i = 2; i < n; i++) {
-    dp[i] = dp[i - 1] + dp[i - 2]
+    dp[i] = dp[i - 1] + dp[i - 2];
   }
-  return dp[n - 1]
+  return dp[n - 1];
 };
 
 // too slow
@@ -72,16 +72,16 @@ const climbStairs = (n) => {
   function climb (i) {
     if (i > n) {
       return 0;
-    };
+    }
 
     if (i === n) {
       return 1;
-    };
+    }
 
     return climb(i + 1) + climb(i + 2);
-  };
+  }
 
-  return climb(0)
+  return climb(0);
 };
 
 // too slow
@@ -96,8 +96,8 @@ const climbStairs2 = (n) => {
       nextStep(remain - 1);
     } else {
       count++;
-    };
-  };
+    }
+  }
 
   nextStep(n);
 
@@ -108,4 +108,4 @@ const climbStairs2 = (n) => {
 module.exports = [
   climbStairsMemo,
   climbStairsDP
-]
+];

@@ -15,4 +15,4 @@ module.exports = [
     input: [['c', 'c']],
     output: 'c'
   }
-]
+];

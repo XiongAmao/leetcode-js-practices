@@ -27,15 +27,15 @@ const isPalindrome = function(x) {
 
   for (let i = 0; i < (len / 2); i++) {
     if (strArr[i] !== strArr[len - i - 1]) {
-      return false
+      return false;
     }
   }
 
-  return true
+  return true;
 };
 
 const isPalindromeRevertHalfNumber = (x) => {
-  const int = val => parseInt(val, 10)
+  const int = val => parseInt(val, 10);
 
   if (x < 0 || (x % 10 === 0 && x !== 0)) {
     return false;
@@ -48,10 +48,10 @@ const isPalindromeRevertHalfNumber = (x) => {
     number = int(number / 10);
   }
 
-  return number === revertedNumber || number === int(revertedNumber / 10)
+  return number === revertedNumber || number === int(revertedNumber / 10);
 };
 
 module.exports = [
   isPalindrome,
   isPalindromeRevertHalfNumber
-]
+];

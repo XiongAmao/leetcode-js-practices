@@ -15,18 +15,18 @@ class SinglyLinkedList {
       if (index !== arr.length - 1 ) {
         cur = cur.next;
       }
-    })
+    });
 
     this.endNode = cur;
   }
 
   getStart () {
     return this.headNode;
-  };
+  }
 
   getEnd () {
     return this.endNode;
-  };
+  }
 }
 
 const case1InputHead = new SinglyLinkedList([1, 2, 3, 4]).getStart().next;
@@ -53,4 +53,4 @@ module.exports = [
     input: [case3Node],
     output: case3Node
   }
-]
+];

@@ -69,4 +69,4 @@ const reverseListRecurse = (head) => {
 
 module.exports = [
   reverseListIteratively
-]
+];

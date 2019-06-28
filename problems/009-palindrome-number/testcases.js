@@ -19,4 +19,4 @@ module.exports = [
     input: [12345654321],
     output: true
   }
-]
+];

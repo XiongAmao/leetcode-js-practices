@@ -7,8 +7,8 @@ const createCases = (arr, targetArr, targetLen) => {
 
     // test if the array has changed
     expect(cur).toEqual(targetArr);
-  }
-}
+  };
+};
 
 module.exports = [
   createCases([1, 1, 2], [1, 2], 2),
@@ -17,4 +17,4 @@ module.exports = [
     [0, 1, 2, 3, 4],
     5
   )
-]
+];

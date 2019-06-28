@@ -31,25 +31,25 @@ const findContentChildren = (g, s) => {
   if (s.length === 0 || g.length === 0) {
     return 0;
   }
-  g.sort((a, b) => a - b)
-  s.sort((a, b) => a - b)
+  g.sort((a, b) => a - b);
+  s.sort((a, b) => a - b);
   const len = g.length > s.length
     ? s.length
-    : g.length
+    : g.length;
   let count = 0;
 
   for (let i = 0; i < len; i++) {
     for (let t = 0; t < s.length; t++) {
 
       if (g[i] <= s[t]) {
-        s.splice(t, 1)
-        count++
+        s.splice(t, 1);
+        count++;
         break;
       }
     }
   }
 
-  return count
+  return count;
 };
 
 const findContentChildren2 = (g, s) => {
@@ -71,9 +71,9 @@ const findContentChildren2 = (g, s) => {
   }
 
   return count;
-}
+};
 
 module.exports = [
   findContentChildren,
   findContentChildren2
-]
+];

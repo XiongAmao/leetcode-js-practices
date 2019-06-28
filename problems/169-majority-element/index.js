@@ -26,13 +26,13 @@ const majorityElement = (nums) => {
       map[nums[i]]++;
     } else {
       map[nums[i]] = 1;
-    };
+    }
     if(map[nums[i]] > len) {
       return nums[i];
-    };
+    }
   }
 };
 
 module.exports = [
   majorityElement
-]
+];

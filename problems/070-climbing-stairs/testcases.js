@@ -31,4 +31,4 @@ module.exports = [
     input: [60],
     output: 2504730781961
   }
-]
+];

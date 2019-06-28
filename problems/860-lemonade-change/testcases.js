@@ -15,4 +15,4 @@ module.exports = [
     input: [[5,5,10,10,20]],
     output: false
   }
-]
+];

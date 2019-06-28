@@ -65,13 +65,13 @@ const romanToInt = (s) => {
 
   for (let i = 1; i < len; i++ ) {
     if (map[s[i]].match === s[i - 1]) {
-      count = count - (map[s[i - 1]].value * 2)
+      count = count - (map[s[i - 1]].value * 2);
     }
-    count = count + map[s[i]].value
+    count = count + map[s[i]].value;
   }
-  return count
-}
+  return count;
+};
 
 module.exports = [
   romanToInt
-]
+];

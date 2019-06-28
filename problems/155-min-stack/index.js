@@ -70,7 +70,7 @@ class MinStack {
 
 module.exports = [
   MinStack
-]
+];
 
 
 

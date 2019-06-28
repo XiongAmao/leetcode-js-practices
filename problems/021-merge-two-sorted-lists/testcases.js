@@ -12,10 +12,10 @@ const createSinglyLinkedList = (arr) => {
   arr.forEach(num => {
     cur.next = new ListNode(num);
     cur = cur.next;
-  })
+  });
 
   return headNode.next;
-}
+};
 
 module.exports = [
   // [1,2,4] [1,3,4]  => [1,1,2,3,4,4]
@@ -32,4 +32,4 @@ module.exports = [
     input: [null, null],
     output: null
   }
-]
+];

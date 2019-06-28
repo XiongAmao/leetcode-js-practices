@@ -60,8 +60,8 @@ const isValid = (s) => {
   if (stack.length > 0) return false;
 
   return true;
-}
+};
 
 module.exports = [
   isValid
-]
+];

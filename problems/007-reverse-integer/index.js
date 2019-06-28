@@ -21,7 +21,7 @@ const reverse = function reverse(x) {
     return 0;
   }
 
-  const max = (2 ** 31) - 1;
+  const max = 2 ** 31 - 1;
   const isMinus = x < 0;
   const temp = [];
   const arr = String(x).split('');
@@ -47,7 +47,7 @@ const reverseRemainder = function reverseRemainder(x) {
   let absX = Math.abs(x);
 
   while (absX) {
-    res = (res * 10) + (absX % 10);
+    res = res * 10 + (absX % 10);
     absX = parseInt(absX / 10, 10);
   }
   if (res > 2147483647) {
@@ -56,7 +56,4 @@ const reverseRemainder = function reverseRemainder(x) {
   return x > 0 ? res : -res;
 };
 
-module.exports = [
-  reverse,
-  reverseRemainder
-]
+module.exports = [reverse, reverseRemainder];

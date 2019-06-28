@@ -13,12 +13,12 @@ const createCases = (testList, final) => {
         } else {
           toDo(p);
         }
-      })
+      });
 
-    })
+    });
     // expect(MinStack.stack).toEqual(final);
-  }
-}
+  };
+};
 
 module.exports = [
   createCases([
@@ -42,5 +42,5 @@ module.exports = [
       { action: 'getMin', a: -2 }
     ]
   ])
-]
+];
 
