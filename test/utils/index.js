@@ -3,7 +3,7 @@ const valToTypeString = (val) => {
 };
 
 const isFunction = (arg) => {
-  return valToTypeString(arg) === '[object Function]'
+  return valToTypeString(arg) === '[object Function]';
 };
 
 const isArray = (arg) => {
@@ -11,11 +11,11 @@ const isArray = (arg) => {
 };
 
 const isObject = (arg) => {
-  return valToTypeString(arg) === '[object Object]'
-}
+  return valToTypeString(arg) === '[object Object]';
+};
 
 module.exports = {
   isFunction,
   isArray,
   isObject
-}
+};
