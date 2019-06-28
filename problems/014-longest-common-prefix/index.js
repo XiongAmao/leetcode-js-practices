@@ -25,7 +25,7 @@ const longestCommonPrefix = (strs) => {
 
   let i;
 
-  for (i = 0; i >= 0; i++) {
+  for (i = 0; i <= strs.length; i++) {
     const char = strs[0][i];
     const isSame = strs.every((el) => {
       return char === el[i];
