@@ -13,7 +13,8 @@ module.exports = {
     ecmaVersion: 2018
   },
   rules: {
-    semi: ['error']
+    semi: ['error'],
+    'no-unused-vars': 'off'
   },
   globals: {
     expect: true
