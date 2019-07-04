@@ -47,6 +47,34 @@ var addTwoNumbers = function(l1, l2) {
   return headNode.next;
 };
 
+var addTwoNumbers2 = function(l1, l2) {
+  const headNode = new ListNode('head');
+  let carry = 0;
+  let curNode = headNode;
+
+  while(l1 || l2 || carry) {
+    let val = carry;
+
+    if (l1) {
+      val = val + l1.val;
+      l1 = l1.next || null;
+    }
+
+    if (l2) {
+      val = val + l2.val;
+      l2 = l2.next || null;
+    }
+
+    carry = val > 9 ? 1 : 0;
+
+    curNode.next = new ListNode(val % 10);
+    curNode = curNode.next;
+  }
+
+  return headNode.next;
+};
+
 module.exports = [
-  addTwoNumbers
+  addTwoNumbers,
+  addTwoNumbers2
 ];
