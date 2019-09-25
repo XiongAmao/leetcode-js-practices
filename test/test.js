@@ -3,16 +3,15 @@ const { isArray, isFunction } = _;
 const problemList = JSON.parse(process.env.problems);
 
 const runTest = (fnc, cases, name) => {
-  const casesCopy = _.cloneDeepWith(cases)
-
+  const casesCopy = _.cloneDeepWith(cases);
 
   describe(`function: ${name}`, () => {
     casesCopy.forEach((oneOfCase, index) => {
       if (isFunction(oneOfCase)) {
         // define test function of problem
         test(`testcase ${index + 1}`, () => {
-          oneOfCase(fnc)
-        })
+          oneOfCase(fnc);
+        });
       } else {
         // simple test
         const { inputText, outputText } = oneOfCase;
@@ -23,15 +22,14 @@ const runTest = (fnc, cases, name) => {
           input: ${inputString}
           output: ${outputString}
         `, () => {
-          expect(fnc.apply(null, oneOfCase.input))
-            .toEqual(oneOfCase.output);
-        })
+          expect(fnc.apply(null, oneOfCase.input)).toEqual(oneOfCase.output);
+        });
       }
-    })
-  })
-}
+    });
+  });
+};
 
-problemList.forEach(p => {
+problemList.forEach((p) => {
   const testCase = require(p.testCasePath);
   const problemFncs = require(p.path);
 
@@ -41,11 +39,9 @@ problemList.forEach(p => {
     }
 
     if (isArray(problemFncs)) {
-      problemFncs.forEach(fnc => {
+      problemFncs.forEach((fnc) => {
         runTest(fnc, testCase, fnc.name);
-      })
+      });
     }
-  })
-})
-
-
+  });
+});
