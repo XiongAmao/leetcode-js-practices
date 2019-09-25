@@ -18,7 +18,9 @@
     "shelljs": "^0.8.3"
   },
   "devDependencies": {
-    "eslint": "^6.2.2"
+    "eslint": "^5.16.0",
+    "eslint-plugin-jest": "^22.19.0",
+    "prettier-eslint": "^9.0.0"
   },
   "scripts": {
     "jest": "jest --findRelatedTests ./test/test.js --colors",
