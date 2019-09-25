@@ -14,3 +14,7 @@ Example:
 Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
 Output: 7 -> 0 -> 8
 Explanation: 342 + 465 = 807.
+
+来源：力扣（LeetCode）
+链接： https://leetcode-cn.com/problems/add-two-numbers/
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
