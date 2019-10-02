@@ -45,3 +45,5 @@ for (int i = 0; i < len; i++) {
     print(nums[i]);
 }
 ```
+
+link: https://leetcode.com/problems/remove-element
