@@ -1,6 +1,6 @@
 const fuzzy = require('fuzzy');
 
-const serachAll = (allProblems = []) => {
+const searchAll = (allProblems = []) => {
   const problemNameList = allProblems.map((obj) => obj.name);
   const len = allProblems.length;
 
@@ -26,4 +26,4 @@ const serachAll = (allProblems = []) => {
   };
 };
 
-module.exports = serachAll;
+module.exports = searchAll;

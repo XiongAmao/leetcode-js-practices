@@ -7,13 +7,13 @@ const { getAllProblems } = require('./helpers/read-problems.js');
 const { saveCache } = require('./helpers/cache.js');
 const runJest = require('./helpers/run-jest.js');
 const getModeChoices = require('./helpers/get-mode-choices.js');
-const serachAll = require('./helpers/search-all.js');
+const searchAll = require('./helpers/search-all.js');
 
 inquirer.registerPrompt('search-checkbox', searchCheckbox);
 inquirer.registerPrompt('autocomplete', inquirerAutocompletePrompt);
 
 const allProblems = getAllProblems();
-const allProblmeChoices = allProblems.map((problem) => {
+const allProblemChoices = allProblems.map((problem) => {
   return {
     name: problem.problemName,
     value: problem
@@ -50,7 +50,7 @@ inquirer
             name: 'pick',
             message: 'choose one problem: ',
             pageSize: 10,
-            source: serachAll(allProblmeChoices)
+            source: searchAll(allProblemChoices)
           }
         ])
         .then((answers) => {
@@ -74,7 +74,7 @@ inquirer
             name: 'pick',
             message: 'Pick some problems: ',
             pageSize: 10,
-            choices: allProblmeChoices
+            choices: allProblemChoices
           }
         ])
         .then((answers) => {
