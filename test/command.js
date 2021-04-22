@@ -43,7 +43,7 @@ inquirer
           //   name: 'pick',
           //   message: 'choose one problem: ',
           //   pageSize: 10,
-          //   choices: allProblmeChoices
+          //   choices: allProblemChoices
           // }
           {
             type: 'autocomplete',

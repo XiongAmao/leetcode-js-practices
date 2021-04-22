@@ -31,15 +31,15 @@ const runTest = (fnc, cases, name) => {
 
 problemList.forEach((p) => {
   const testCase = require(p.testCasePath);
-  const problemFncs = require(p.path);
+  const problemFuncs = require(p.path);
 
   describe(p.problemName, () => {
-    if (isFunction(problemFncs)) {
-      runTest(problemFncs, testCase, problemFncs.name);
+    if (isFunction(problemFuncs)) {
+      runTest(problemFuncs, testCase, problemFuncs.name);
     }
 
-    if (isArray(problemFncs)) {
-      problemFncs.forEach((fnc) => {
+    if (isArray(problemFuncs)) {
+      problemFuncs.forEach((fnc) => {
         runTest(fnc, testCase, fnc.name);
       });
     }
