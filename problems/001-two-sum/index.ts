@@ -1,19 +1,8 @@
-/**
- * Given an array of integers, return indices of the two numbers
- * such that they add up to a specific target.
- * You may assume that each input would have exactly one solution,
- * and you may not use the same element twice.
- *
- * Example:
- * Given nums = [2, 7, 11, 15], target = 9,
- * Because nums[0] + nums[1] = 2 + 7 = 9,
- * return [0, 1].
- *
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
- */
-const twoSum = function twoSum(nums, target) {
+export interface TwoSumFn {
+  (nums: number[], target: number): number[] | undefined;
+}
+
+export const twoSum: TwoSumFn = (nums, target) => {
   let idx1;
   let idx2;
 
@@ -33,12 +22,14 @@ const twoSum = function twoSum(nums, target) {
   }
 };
 
-const twoSumHashMap = function twoSumHashMap(nums, target) {
+export const twoSumHashMap: TwoSumFn = (nums, target) => {
   if (nums.length === 2 && nums[0] + nums[1] === target) {
     return [0, 1];
   }
 
-  const hashMap = {};
+  const hashMap: {
+    [index: number]: number;
+  } = {};
   const len = nums.length;
 
   for (let i = 0; i < len; i++) {
@@ -54,12 +45,14 @@ const twoSumHashMap = function twoSumHashMap(nums, target) {
   }
 };
 
-const twoSumOnePassHashTable = function twoSumOnePassHashTable(nums, target) {
+export const twoSumOnePassHashTable: TwoSumFn = (nums, target) => {
   if (nums.length === 2 && nums[0] + nums[1] === target) {
     return [0, 1];
   }
 
-  const hashMap = {};
+  const hashMap: {
+    [index: number]: number;
+  } = {};
   const len = nums.length;
 
   for (let i = 0; i < len; i++) {
@@ -72,9 +65,3 @@ const twoSumOnePassHashTable = function twoSumOnePassHashTable(nums, target) {
     hashMap[nums[i]] = i;
   }
 };
-
-module.exports = [
-  twoSum,
-  twoSumHashMap,
-  twoSumOnePassHashTable
-];

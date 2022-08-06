@@ -1,26 +1,21 @@
-function ListNode(val) {
-  this.val = val;
-  this.next = null;
+export class ListNode {
+  val: number;
+  next: ListNode | null;
+  constructor(val?: number, next?: ListNode | null) {
+    this.val = val === undefined ? 0 : val;
+    this.next = next === undefined ? null : next;
+  }
 }
 
-/**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
- */
-/**
- * @param {ListNode} l1
- * @param {ListNode} l2
- * @return {ListNode}
- */
-var addTwoNumbers = function(l1, l2) {
-  const headNode = new ListNode('head');
+export const addTwoNumbers = (
+  l1: ListNode | null,
+  l2: ListNode | null
+): ListNode | null => {
+  const headNode = new ListNode();
   let needCarry = false;
   let curNode = headNode;
 
-  while(l1 || l2 || needCarry) {
+  while (l1 || l2 || needCarry) {
     let val = needCarry ? 1 : 0;
 
     if (l1) {
@@ -47,12 +42,15 @@ var addTwoNumbers = function(l1, l2) {
   return headNode.next;
 };
 
-var addTwoNumbers2 = function(l1, l2) {
-  const headNode = new ListNode('head');
+export const addTwoNumbers2 = (
+  l1: ListNode | null,
+  l2: ListNode | null
+): ListNode | null => {
+  const headNode = new ListNode(0);
   let carry = 0;
   let curNode = headNode;
 
-  while(l1 || l2 || carry) {
+  while (l1 || l2 || carry) {
     let val = carry;
 
     if (l1) {
@@ -73,8 +71,3 @@ var addTwoNumbers2 = function(l1, l2) {
 
   return headNode.next;
 };
-
-module.exports = [
-  addTwoNumbers,
-  addTwoNumbers2
-];
