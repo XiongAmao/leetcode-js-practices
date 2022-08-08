@@ -1,3 +1,4 @@
+import { describe, expect, test } from '@jest/globals';
 import { twoSum, TwoSumFn, twoSumHashMap, twoSumOnePassHashTable } from '.';
 
 const testCase = (fn: TwoSumFn) => {
