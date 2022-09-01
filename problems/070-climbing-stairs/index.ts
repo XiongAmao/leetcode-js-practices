@@ -28,84 +28,64 @@
  */
 
 // Recursion with memorization
-const climbStairsMemo = (n) => {
-  const memo = [];
-
-  function climb (i) {
-    if (i > n) {
-      return 0;
-    }
-
-    if (i === n) {
-      return 1;
-    }
-
+export const climbStairsMemo = (n: number): number => {
+  const memo: number[] = [];
+  function climb(i: number) {
+    if (i > n) return 0;
+    if (i === n) return 1;
     if (memo[i] > 0) {
       return memo[i];
     }
-
     memo[i] = climb(i + 1) + climb(i + 2);
-
     return memo[i];
   }
   return climb(0);
 };
 
+// TODO: review it again
 // dynamic programming
-const climbStairsDP = (n) => {
-  if (n <= 2) {
-    return n;
-  }
+export const climbStairsDP = (n: number): number => {
+  if (n <= 2) return n;
 
   const dp = [];
   dp[0] = 1;
   dp[1] = 2;
 
-  for(let i = 2; i < n; i++) {
+  for (let i = 2; i < n; i++) {
     dp[i] = dp[i - 1] + dp[i - 2];
   }
   return dp[n - 1];
 };
 
 // too slow
-const climbStairs = (n) => {
-  function climb (i) {
+const climbStairs = (n: number): number => {
+  function climb(i: number): number {
     if (i > n) {
       return 0;
     }
-
     if (i === n) {
       return 1;
     }
-
     return climb(i + 1) + climb(i + 2);
   }
-
   return climb(0);
 };
 
 // too slow
-const climbStairs2 = (n) => {
+const climbStairs2 = (n: number): number => {
   let count = 0;
 
-  function nextStep (remain) {
+  function down(remain: number) {
     if (remain > 1) {
-      nextStep(remain - 1);
-      nextStep(remain - 2);
+      down(remain - 1);
+      down(remain - 2);
     } else if (remain === 1) {
-      nextStep(remain - 1);
+      down(remain - 1);
     } else {
       count++;
     }
   }
 
-  nextStep(n);
-
+  down(n);
   return count;
 };
-
-
-module.exports = [
-  climbStairsMemo,
-  climbStairsDP
-];
