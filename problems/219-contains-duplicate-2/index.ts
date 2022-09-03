@@ -41,3 +41,23 @@ export function containsNearbyDuplicate2(nums: number[], k: number): boolean {
   }
   return false;
 }
+export function containsNearbyDuplicateWithSet(
+  nums: number[],
+  k: number
+): boolean {
+  if (nums.length < 2) return false;
+  const set = new Set();
+
+  for (let i = 0; i < nums.length; i++) {
+    if (set.has(nums[i])) {
+      return true;
+    }
+    set.add(nums[i]);
+    if (set.size > k) {
+      // 移除掉小于K的最近一个数
+      set.delete(nums[i - k]);
+    }
+  }
+
+  return false;
+}
