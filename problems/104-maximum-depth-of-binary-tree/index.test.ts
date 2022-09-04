@@ -13,6 +13,10 @@ const addNode = (val: number, curNode: TreeNode, key = 'left') => {
   return newNode;
 };
 
+// case data 是同层级按从左(叶)至右(叶)，不同层从上至下，
+// 为每一个节点的子节点添加节点，null为节点
+// 因此通过一个队列，取先进的节点，为其添加左右叶，
+// 并按顺序将新添加的节点放入队列即可实现
 const createBinaryTree = (sourceArr: (number | null)[]) => {
   const root = new TreeNode(sourceArr[0] || undefined);
   const queue = [root];
@@ -20,7 +24,8 @@ const createBinaryTree = (sourceArr: (number | null)[]) => {
 
   while (queue.length && idx < sourceArr.length) {
     const curNode = queue.shift();
-    if (!curNode) continue;
+
+    if (!curNode) continue; // for type check
 
     if (idx < sourceArr.length) {
       const val = sourceArr[idx];
@@ -75,7 +80,7 @@ const testFn = (fn: (root: TreeNode | null) => number) => {
 };
 
 describe('104 maximum depth of binary tree', () => {
-  describe('fn 1', () => testFn(maxDepth2));
+  describe('dual queue', () => testFn(maxDepth2));
 
-  describe('fn 2', () => testFn(maxDepth));
+  describe('recursion', () => testFn(maxDepth));
 });
