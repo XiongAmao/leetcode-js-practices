@@ -1,5 +1,5 @@
 import { describe, expect, test } from '@jest/globals';
-import { reverseString, reverseString2 } from '.';
+import { reverseString, reverseString2, reverseStringDualPointer } from '.';
 
 const testFn = (fn: (s: string[]) => void) => {
   test.each([
@@ -26,4 +26,5 @@ const testFn = (fn: (s: string[]) => void) => {
 describe('344 reverse string', () => {
   describe('fn 1', () => testFn(reverseString));
   describe('fn 2', () => testFn(reverseString2));
+  describe('dual pointer', () => testFn(reverseStringDualPointer));
 });
