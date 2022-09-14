@@ -1,11 +1,20 @@
 import inquirer from 'inquirer';
-import { createDir, createReadme, createTemplate } from './helpers';
+import {
+  createDir,
+  createReadme,
+  createTemplate,
+  formatURL,
+  getDirPath,
+  isDirExist
+} from './helpers';
+import { log, warning } from './helpers/log';
 
 interface Answers {
   id: string;
-  zh: string;
+  cn: string;
   en: string;
   url: string;
+  difficulty: string;
 }
 
 const run = async () => {
@@ -14,25 +23,29 @@ const run = async () => {
       {
         type: 'input',
         name: 'id',
-        message: 'enter problem id:',
-        validate: (input) => {
-          return true;
-        }
+        message: 'enter problem id:'
       },
       {
         type: 'input',
-        name: 'zh',
-        message: 'enter chinese title:'
+        name: 'cn',
+        message: 'enter chinese title of the topic:'
       },
       {
         type: 'input',
         name: 'en',
-        message: 'enter english title:'
+        message: 'enter english title of the topic:'
       },
       {
         type: 'input',
         name: 'url',
-        message: 'url:'
+        message: 'enter url:'
+      },
+      {
+        type: 'list',
+        name: 'diff',
+        message: 'please choose the difficulty of the topic:',
+        default: 'easy',
+        choices: ['easy', 'medium', 'hard']
       }
     ])
     .catch((err) => {
@@ -40,13 +53,28 @@ const run = async () => {
       process.exit(1);
     });
 
-  const { id, zh, en, url } = ans;
+  const { id, cn, en, url, difficulty } = ans;
 
-  await createDir();
-  await createReadme();
-  await createTemplate();
+  const dirPath = getDirPath(id, en);
+  const hasDir = await isDirExist(dirPath);
 
-  console.log('create successfully!');
+  if (hasDir) {
+    await createDir(dirPath);
+
+    const { enURL, cnURL } = formatURL(url);
+
+    await createReadme(dirPath, {
+      cn,
+      en,
+      cnURL,
+      enURL,
+      difficulty
+    });
+    await createTemplate(dirPath, en, id);
+    log('Create successfully!', 'green');
+  } else {
+    warning('Problem dir already exist.');
+  }
 };
 
 run();
