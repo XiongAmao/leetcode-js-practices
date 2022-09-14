@@ -3,11 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "directories": {
     "test": "test"
   },
   "devDependencies": {
     "@jest/globals": "^28.1.3",
+    "@types/inquirer": "^9.0.1",
+    "@types/lodash": "^4.14.185",
     "@types/node": "^18.6.4",
     "@xiongamao/eslint-config-ts": "0.2.1",
     "chalk": "^5.0.1",
@@ -26,9 +29,8 @@
     "typescript": "^4.7.4"
   },
   "scripts": {
-    "jest": "jest --findRelatedTests ./test/test.js --colors",
     "test": "jest problems",
-    "test:old": "node ./test/command.js",
+    "create": "tsx scripts/create.ts",
     "lint": "eslint --fix problems/"
   },
   "repository": {

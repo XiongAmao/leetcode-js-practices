@@ -18,4 +18,7 @@
     ],
     "baseUrl": "./",
   },
+  "exclude": [
+    "scripts/templates/*.ts"
+  ]
 }
