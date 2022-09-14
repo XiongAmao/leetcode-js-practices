@@ -42,7 +42,7 @@ const run = async () => {
       },
       {
         type: 'list',
-        name: 'diff',
+        name: 'difficulty',
         message: 'please choose the difficulty of the topic:',
         default: 'easy',
         choices: ['easy', 'medium', 'hard']
