@@ -1,7 +1,7 @@
 import { describe, expect, test } from '@jest/globals';
 import { <%= funcName %> } from '.';
 
-const testFn = (fn: (input: any) => any) => {
+const testFn = (fn: typeof <%= funcName %>) => {
   test.each([
     []
   ])('Case: %#', (input, expected) => {
