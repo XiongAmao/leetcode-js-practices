@@ -78,7 +78,8 @@ export const createTemplate = async (
   en: string,
   id: string
 ) => {
-  const funcName = toCamelCase(en);
+  // TODO: rename
+  const funcName = `func`;
   const title = `${id} ${en}`;
 
   const indexData = await readFile(TEMPLATE_PATHS.INDEX);
