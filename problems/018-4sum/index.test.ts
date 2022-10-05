@@ -27,7 +27,7 @@ const testFn = (fn: typeof fourSum) => {
 
     expect(ans.length === expected.length).toBeTruthy();
     ans.forEach((elem) => {
-      expect(expected).toContainEqual(elem);
+      expect(expected).toContainEqual(expect.arrayContaining(elem));
     });
   });
 };
