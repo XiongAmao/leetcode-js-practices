@@ -2,14 +2,18 @@
 
 > Node.js 8 lts
 
-## start
+## install
 
 ```bash
-$ npm install
+$ pnpm install
 
-$ npm run test
-
-# choose and run test
 ```
+
+## create item
+
+```bash
+$ pnpm run create
+```
+
 
 ## write you answer and testcase
