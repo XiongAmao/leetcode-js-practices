@@ -35,7 +35,11 @@ export class LRUCacheWithMap {
     if (this.cache.has(key)) {
       this.cache.delete(key);
     } else if (this.cache.size >= this.limit) {
-      const [firstKey] = this.cache.keys();
+      // iterable destructuring assignment
+      const iter = this.cache.keys();
+      const firstKey = iter.next().value; // first
+      // const [firstKey] = this.cache.keys();
+
       // for TS check
       this.cache.delete(~~firstKey);
     }
