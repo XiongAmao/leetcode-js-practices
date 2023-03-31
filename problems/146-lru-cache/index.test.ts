@@ -1,7 +1,7 @@
 import { describe, expect, test } from '@jest/globals';
-import { LRUCacheWithMap } from '.';
+import { LRUCache, LRUCacheWithMap } from '.';
 
-const testFn = (LRUConstructor: typeof LRUCacheWithMap) => {
+const testFn = (LRUConstructor: typeof LRUCacheWithMap | typeof LRUCache) => {
   type Action = 'LRUCache' | 'put' | 'get';
   type EachTuple = [Action[], number[][], (null | number)[]];
 
@@ -52,5 +52,6 @@ const testFn = (LRUConstructor: typeof LRUCacheWithMap) => {
 };
 
 describe(`146 LRU Cache`, () => {
-  describe('fn 1', () => testFn(LRUCacheWithMap));
+  describe('fn use js Map()', () => testFn(LRUCacheWithMap));
+  describe('use list node & hash', () => testFn(LRUCache));
 });
