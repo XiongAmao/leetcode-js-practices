@@ -27,3 +27,22 @@ export const removeElement2: RemoveElementFn = (nums, val) => {
 
   return nums.length;
 };
+
+export const removeElementFastSlowPointer = (
+  nums: number[],
+  val: number
+): number => {
+  let slow = 0;
+  for (let fast = 0; fast < nums.length; fast++) {
+    if (nums[fast] !== val) {
+      nums[slow] = nums[fast];
+      slow++;
+    }
+  }
+
+  // 原题没有要求后续数组元素处理
+  // nums.splice(storeIdx);
+
+  // index 从0 开始，因此最后  slow) 位置等于已排好数组长
+  return slow;
+};

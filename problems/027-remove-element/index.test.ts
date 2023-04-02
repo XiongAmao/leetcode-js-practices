@@ -1,5 +1,10 @@
 import { describe, expect, test } from '@jest/globals';
-import { removeElement, removeElement2, RemoveElementFn } from '.';
+import {
+  removeElement,
+  removeElement2,
+  removeElementFastSlowPointer,
+  RemoveElementFn
+} from '.';
 
 const testCase = (fn: RemoveElementFn) => {
   test.each([
@@ -18,5 +23,9 @@ describe('027 remove element', () => {
 
   describe('remove element 2', () => {
     testCase(removeElement2);
+  });
+
+  describe('remove element 2', () => {
+    testCase(removeElementFastSlowPointer);
   });
 });
