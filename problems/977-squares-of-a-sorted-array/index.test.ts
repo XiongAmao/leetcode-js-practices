@@ -1,5 +1,5 @@
 import { describe, expect, test } from '@jest/globals';
-import { sortedSquares } from '.';
+import { sortedSquares, sortedSquares2 } from '.';
 
 const testFn = (fn: typeof sortedSquares) => {
   test.each([
@@ -18,4 +18,5 @@ const testFn = (fn: typeof sortedSquares) => {
 
 describe(`977 squares of a sorted array`, () => {
   describe('fn 1', () => testFn(sortedSquares));
+  describe('fn 2', () => testFn(sortedSquares2));
 });
