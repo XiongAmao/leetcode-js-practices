@@ -1,7 +1,11 @@
 export function reverseStr(s: string, k: number): string {
   const arr = s.split('');
-  const swap = (i: number, j: number) => {
-    [arr[i], arr[j]] = [arr[j], arr[i]];
+  const swap = (l: number, r: number) => {
+    while (l < r) {
+      [arr[l], arr[r]] = [arr[r], arr[l]];
+      l++;
+      r--;
+    }
   };
 
   let start = 0;
